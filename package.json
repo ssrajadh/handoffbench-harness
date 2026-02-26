@@ -1,0 +1,26 @@
+{
+  "name": "handoffbench-harness",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Benchmark harness for measuring coding agent context loss across handoffs",
+  "bin": {
+    "handoffbench": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx src/index.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "better-sqlite3": "^11.7.0",
+    "chalk": "^5.4.1",
+    "commander": "^13.1.0",
+    "typescript": "^5.7.3"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/node": "^22.12.0",
+    "tsx": "^4.19.0"
+  }
+}
