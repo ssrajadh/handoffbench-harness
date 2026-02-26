@@ -1,0 +1,50 @@
+{
+  "description": "Ground truth for OpenGrove after T1-T3 establishment phase. Describes decisions, patterns, and gotchas that a context-aware agent would know.",
+  "decisions": [
+    {
+      "task": "t1",
+      "description": "Cost tracking implementation",
+      "decision": "[TO BE FILLED: How cost tracking schema was designed]",
+      "files_modified": [],
+      "patterns_established": []
+    },
+    {
+      "task": "t2",
+      "description": "Reply to highlighted message part",
+      "decision": "[TO BE FILLED: How message references are stored and displayed]",
+      "files_modified": [],
+      "patterns_established": []
+    },
+    {
+      "task": "t3",
+      "description": "PII guardrail implementation",
+      "decision": "[TO BE FILLED: How prompts are intercepted and redacted]",
+      "files_modified": [],
+      "patterns_established": []
+    }
+  ],
+  "existing_infrastructure": {
+    "vector_db": "sqlite-vec virtual table in lib/db.ts",
+    "embeddings": "OpenAI text-embedding-3-small via lib/embeddings.ts",
+    "rag_pipeline": "lib/rag.ts with ~20% context budget",
+    "token_windowing": "user/assistant pairs never split",
+    "embedding_config": "embedding_config table — changing model wipes all vectors",
+    "env_files": ".env can live at repo root or in app/ — the app checks both",
+    "branching": "Branch-aware lineage traversal for conversation history"
+  },
+  "critical_gotchas": [
+    "sqlite-vec is already the vector backend — do NOT introduce a separate vector DB",
+    "RAG budget capped at ~20% of available context",
+    "user/assistant pairs never split during token windowing",
+    "embedding_config table: changing the model wipes all vectors",
+    ".env can live at repo root or in app/ — the app checks both"
+  ],
+  "handoff_critical_patterns": {
+    "for_t4": [
+      "[TO BE FILLED: What T4 agent MUST know from T1-T3 to succeed]"
+    ],
+    "for_t5": [
+      "[TO BE FILLED: What T5 agent MUST know from T1-T3 to succeed]"
+    ]
+  }
+}
